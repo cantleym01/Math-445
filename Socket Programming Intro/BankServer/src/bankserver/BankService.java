@@ -7,7 +7,6 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-
 public class BankService implements Runnable {
     private Socket s;
     private Scanner in;
@@ -57,8 +56,8 @@ public class BankService implements Runnable {
             bank.deposit(account, amount);
         }
         else if (command.equals("WITHDRAW")) {
-         double amount = in.nextDouble();
-         bank.withdraw(account, amount);
+            double amount = in.nextDouble();
+            bank.withdraw(account, amount);
         }
         else if (!command.equals("BALANCE")) {
             out.println("Invalid command");

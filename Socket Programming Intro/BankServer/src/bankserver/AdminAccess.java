@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class AdminAccess implements Runnable{
     private String pass;
     private boolean access;
-    public boolean exit;
     private int clients;
     private Socket a;
     private Scanner in;
@@ -21,7 +20,6 @@ public class AdminAccess implements Runnable{
         access = false;
         clients = 0;
         a = admin;
-        exit = false;
     }
     
     public void run() {
@@ -53,18 +51,19 @@ public class AdminAccess implements Runnable{
     public void executeCommand(String command) {
         if (command.equals("LOGIN")) {
             if (!in.hasNext()) {
-                System.out.println("Missing LOGIN Password... ");
+                out.println("Missing LOGIN Password... ");
+                out.flush();
                 return;
             }
             LOGIN(in.next());
         }
         else if (command.equals("STATUS")) {
             STATUS();
-            System.out.println(in.next());
         }
         else if (command.equals("PASSWORD")) {
             if (!in.hasNext()) {
-                System.out.println("Missing PASSWORD NewPassword... ");
+                out.println("Missing PASSWORD NewPassword... ");
+                out.flush();
                 return;
             }
             PASSWORD(in.next());
@@ -76,62 +75,71 @@ public class AdminAccess implements Runnable{
             SHUTDOWN();
         }
         else {
-            System.out.println("That is not a valid command... ");
+            out.println("That is not a valid command... ");
+            out.flush();
         }
-        
-        out.flush();
     }
     
     public void LOGIN(String password) {
         if (password.equals(pass)) {
             access = true;
             clients++;
-            System.out.println("Logging In... ");
+            out.println("Logging In... ");
+            out.flush();
         }
         else {
-            System.out.println("Wrong Password... ");
+            out.println("Wrong Password... ");
+            out.flush();
         }
     }
     
     
     public void STATUS() {
         if (access) {
-            System.out.println("There are: " + clients + " logins so far...");
+            out.println("There are: " + clients + " logins so far...");
+            out.flush();
         }
         else {
-            System.out.println("You Do Not Have Access... ");
+            out.println("You Do Not Have Access... ");
+            out.flush();
         }
     }
 
     public void PASSWORD (String newPassword) {
         if (access) {
             pass = newPassword;
-            LOGOUT();
-            System.out.println("New Password Set...");
+            access = false; //logout without messages
+            out.println("New Password Set...");
+            out.flush();
         }
         else {
-            System.out.println("You Must Be Logged In To Change The Password... ");
+            out.println("You Must Be Logged In To Change The Password... ");
+            out.flush();
         }
     }
         
     public void LOGOUT() {
         if (access) {
             access = false; //lock user out from commands
-            System.out.println("Logging Out... ");
+            out.println("Logging Out... ");
+            out.flush();
         }
         else {
-            System.out.println("You Are Not Logged In... ");
+            out.println("You Are Not Logged In... ");
+            out.flush();
         }
     }
     
     public void SHUTDOWN() {
         if (access) {
-            LOGOUT();
-            System.out.println("Shutting Down... ");
+            access = false; //logout without messages
+            out.println("Shutting Down... ");
+            out.flush();
             System.exit(0);
         }
         else {
-            System.out.println("You Must Be Logged In To Shutdown... ");
+            out.println("You Must Be Logged In To Shutdown... ");
+            out.flush();
         }
     }
 }

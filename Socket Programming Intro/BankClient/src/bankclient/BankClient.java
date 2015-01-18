@@ -52,49 +52,49 @@ public class BankClient {
         System.out.print("Sending: " + command);
         out.print(command);
         out.flush();
-        response = command;
+        response = in.nextLine();
         System.out.println("Receiving: " + response);
         
         command = "LOGIN passwurd\n";
         System.out.print("Sending: " + command);
         out.print(command);
         out.flush();
-        response = command;
+        response = in.nextLine();
         System.out.println("Receiving: " + response);
         
         command = "PASSWORD passhorde\n";
         System.out.print("Sending: " + command);
         out.print(command);
         out.flush();
-        response = command;
+        response = in.nextLine();
         System.out.println("Receiving: " + response);
         
         command = "LOGIN passwurd\n";
         System.out.print("Sending: " + command);
         out.print(command);
         out.flush();
-        response = command;
+        response = in.nextLine();
         System.out.println("Receiving: " + response);
         
         command = "LOGIN passhorde\n";
         System.out.print("Sending: " + command);
         out.print(command);
         out.flush();
-        response = command;
+        response = in.nextLine();
         System.out.println("Receiving: " + response);
         
         command = "STATUS\n";
         System.out.print("Sending: " + command);
         out.print(command);
         out.flush();
-        response = command;
+        response = in.nextLine();
         System.out.println("Receiving: " + response);
         
         command = "SHUTDOWN\n";
         System.out.print("Sending: " + command);
         out.print(command);
         out.flush();
-        response = command;
+        response = in.nextLine();
         System.out.println("Receiving: " + response);
         
         a.close();

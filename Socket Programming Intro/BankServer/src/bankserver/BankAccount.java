@@ -1,5 +1,6 @@
 package bankserver;
 
+import java.io.PrintWriter;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -11,6 +12,7 @@ public class BankAccount
 {  
    private double balance;
    private Lock balanceChangeLock;
+   private PrintWriter out;
 
    /**
       Constructs a bank account with a zero balance.
@@ -58,7 +60,13 @@ public class BankAccount
       try
       {
          double newBalance = balance - amount;
-         balance = newBalance;
+         if (newBalance > 0) {
+            balance = newBalance;
+         }
+         else {
+             out.println("Insufficient funds...");
+             out.flush();
+         }
       }
       finally
       {
