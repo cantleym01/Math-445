@@ -41,3 +41,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+/Socket Programming Intro/nbproject/private/
+/Socket Programming Intro/BankServer/nbproject/private/
+/Socket Programming Intro/BankClient/nbproject/private/
+/Socket Programming Intro/BankServer/build/
+/Socket Programming Intro/BankClient/build/
