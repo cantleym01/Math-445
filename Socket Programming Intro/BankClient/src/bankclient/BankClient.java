@@ -11,6 +11,8 @@ public class BankClient {
 
     public static void main(String[] args) throws IOException{
         final int SBAP_PORT = 8888;
+        final int ADMIN_PORT = 8889;
+        
         Socket s;
         s = new Socket("localhost", SBAP_PORT);
         InputStream instream = s.getInputStream();
@@ -38,5 +40,63 @@ public class BankClient {
         out.flush();
 
         s.close();
+        
+        Socket a;
+        a = new Socket("localhost", ADMIN_PORT);
+        instream = a.getInputStream();
+        outstream = a.getOutputStream();
+        in = new Scanner(instream);
+        out = new PrintWriter(outstream);
+        
+        command = "LOGIN passhorde\n";
+        System.out.print("Sending: " + command);
+        out.print(command);
+        out.flush();
+        response = command;
+        System.out.println("Receiving: " + response);
+        
+        command = "LOGIN passwurd\n";
+        System.out.print("Sending: " + command);
+        out.print(command);
+        out.flush();
+        response = command;
+        System.out.println("Receiving: " + response);
+        
+        command = "PASSWORD passhorde\n";
+        System.out.print("Sending: " + command);
+        out.print(command);
+        out.flush();
+        response = command;
+        System.out.println("Receiving: " + response);
+        
+        command = "LOGIN passwurd\n";
+        System.out.print("Sending: " + command);
+        out.print(command);
+        out.flush();
+        response = command;
+        System.out.println("Receiving: " + response);
+        
+        command = "LOGIN passhorde\n";
+        System.out.print("Sending: " + command);
+        out.print(command);
+        out.flush();
+        response = command;
+        System.out.println("Receiving: " + response);
+        
+        command = "STATUS\n";
+        System.out.print("Sending: " + command);
+        out.print(command);
+        out.flush();
+        response = command;
+        System.out.println("Receiving: " + response);
+        
+        command = "SHUTDOWN\n";
+        System.out.print("Sending: " + command);
+        out.print(command);
+        out.flush();
+        response = command;
+        System.out.println("Receiving: " + response);
+        
+        a.close();
     }
 }
