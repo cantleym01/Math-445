@@ -1,5 +1,7 @@
 package bankserver;
 
+import java.io.IOException;
+
 public class Bank
 {
    private BankAccount[] accounts;
@@ -7,8 +9,9 @@ public class Bank
    /**
       Constructs a bank account with a given number of accounts.
       @param size the number of accounts
+     * @throws java.io.IOException
    */
-   public Bank(int size)
+   public Bank(int size) throws IOException
    {
       accounts = new BankAccount[size];
       for (int i = 0; i < accounts.length; i++)
@@ -22,10 +25,10 @@ public class Bank
       @param accountNumber the account number
       @param amount the amount to deposit
    */
-   public void deposit(int accountNumber, double amount)
+   public String deposit(int accountNumber, double amount) throws InterruptedException
    {
       BankAccount account = accounts[accountNumber];
-      account.deposit(amount);
+      return account.deposit(amount);
    }
 
    /**
@@ -33,10 +36,10 @@ public class Bank
       @param accountNumber the account number
       @param amount the amount to withdraw
    */
-   public void withdraw(int accountNumber, double amount)
+   public String withdraw(int accountNumber, double amount)
    {
       BankAccount account = accounts[accountNumber];
-      account.withdraw(amount);
+      return account.withdraw(amount);
    }
 
    /**

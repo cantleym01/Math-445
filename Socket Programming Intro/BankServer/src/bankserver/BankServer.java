@@ -24,7 +24,7 @@ public class BankServer  {
             service = new BankService(s, bank);
             Thread t = new Thread(service);
             t.start();
-
+            
             Socket a = admin.accept();
             access = new AdminAccess(a, "passwurd");
             Thread th = new Thread(access);
