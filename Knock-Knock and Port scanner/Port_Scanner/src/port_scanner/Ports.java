@@ -21,7 +21,7 @@ public class Ports implements Runnable {
             try {
                 Socket sockItToMe = new Socket();
                 
-                //this way will connect to local host just like in the new Socket(ip, port)
+                //this way will connect to local host just like in the "new Socket(ip, port)"
                 //but this way can connect throught the internet as well :D
                 sockItToMe.connect(new InetSocketAddress(ip, i), 1000);
 
@@ -31,7 +31,7 @@ public class Ports implements Runnable {
             }
             catch (IOException e) {
                 //this is here if want to print what is closed as well
-                System.out.println ("Port: " + i + " not in use.");
+                //System.out.println ("Port: " + i + " not in use.");
             }
         }
     }

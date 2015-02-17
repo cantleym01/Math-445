@@ -33,7 +33,7 @@ public class Port_Scanner {
                 int bottom = 0;
                 
                 switch (i) {
-                    case 0: //first thread
+                    case 0: //first threadlo
                         top = topPort/threads;
                         bottom = bottomPort;
                         break;
