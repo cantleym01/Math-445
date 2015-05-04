@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1430710614 source:c:\users\michael\documents\github\math-445\message queues and message reader\main.cpp
+	<iostream>
+	"message.h"
+	"message_reader.h"
+	"queues.h"
+
+1430710453 c:\users\michael\documents\github\math-445\message queues and message reader\queues.h
+	<queue>
+	<vector>
+	<map>
+	"message.h"
+
+1430709845 c:\users\michael\documents\github\math-445\message queues and message reader\message.h
+	<string>
+	<stdio.h>
+	<stdlib.h>
+
+1430710614 source:c:\users\michael\documents\github\math-445\message queues and message reader\message_reader.cpp
+	<iostream>
+	"message_reader.h"
+	"queues.h"
+
+1428160637 c:\users\michael\documents\github\math-445\message queues and message reader\message_reader.h
+	<string>
+	<stdexcept>
+	"queues.h"
+	"message.h"
+
+1428051399 source:c:\users\michael\documents\github\math-445\message queues and message reader\queues.cpp
+	"queues.h"
+
